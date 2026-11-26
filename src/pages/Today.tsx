@@ -17,6 +17,7 @@ import { destinationOf, displayPlaceLabel, getPlace, resolveRef } from '../lib/p
 import { pickRecommendations } from '../lib/recommend'
 import { daysUntil, formatDuration, HOME_TZ, isMarker, LOCAL_TZ, wallClock } from '../lib/time'
 import { useTrip } from '../state/trip'
+import { TabLink } from '../components/TabLink'
 
 const card = 'rounded-3xl bg-white p-5 shadow-sm dark:bg-slate-800'
 
@@ -246,9 +247,9 @@ function TodaySummary({ items }: { items: EditedItem[] }) {
     <section className={card}>
       <div className="mb-3 flex items-center justify-between">
         <h2 className="text-lg font-bold">📋 오늘 요약</h2>
-        <a href="#all" className="text-sm font-semibold text-sky-700 dark:text-sky-300">
+        <TabLink to="all" className="text-sm font-semibold text-sky-700 dark:text-sky-300">
           전체 보기 →
-        </a>
+        </TabLink>
       </div>
       <ul className="space-y-1.5">
         {shown.map((t) => (
@@ -300,7 +301,7 @@ function BeforeTrip() {
         <FlightCard key={f.id} flight={f} />
       ))}
 
-      <a href="#check" className={`${card} flex items-center justify-between`}>
+      <TabLink to="check" className={`${card} flex items-center justify-between`}>
         <span>
           <b>📞 예약·확인 할 일</b>
           <span className="block text-sm text-slate-500">마사지샵·샌딩 확인 등</span>
@@ -308,7 +309,7 @@ function BeforeTrip() {
         <span className={`rounded-full px-3 py-1 font-bold ${resvDone === resv.length ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}`}>
           {resvDone}/{resv.length} →
         </span>
-      </a>
+      </TabLink>
 
       <Checklist title={`🎒 ${checklists.packing.title}`} items={checklists.packing.items} />
     </>
@@ -340,9 +341,9 @@ function AfterTrip() {
           <li>➕ 직접 추가한 지출·일정 {added}개</li>
           <li>💳 실제 사용 총액 ≈{comma(totalInKrw(s.actual, rate))}원</li>
         </ul>
-        <a href="#all" className="mt-4 block rounded-2xl bg-sky-600 py-3 text-center font-bold text-white">
+        <TabLink to="all" className="mt-4 block rounded-2xl bg-sky-600 py-3 text-center font-bold text-white">
           날짜별 지출 다시 보기
-        </a>
+        </TabLink>
       </section>
     </>
   )

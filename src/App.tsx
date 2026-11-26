@@ -7,32 +7,23 @@ import Check from './pages/Check'
 import { TripProvider, useTrip } from './state/trip'
 import { PwaNotice } from './components/PwaNotice'
 import { useOnline } from './lib/online'
+import { goTab, initTabHistory, onTabChange, readTab, type TabId } from './lib/nav'
 
-const TABS = [
+const TABS: { id: TabId; label: string; icon: string }[] = [
   { id: 'today', label: '오늘', icon: '☀️' },
   { id: 'all', label: '전체', icon: '🗓️' },
   { id: 'nearby', label: '주변', icon: '🧭' },
   { id: 'check', label: '체크', icon: '✅' },
-] as const
-type TabId = (typeof TABS)[number]['id']
+]
 
-/** 지금 탭을 주소 끝(#all 등)에 기억 → 새로고침해도 같은 탭 */
+/** 지금 탭을 주소 끝(#all 등)에 기억 → 새로고침해도 같은 탭. 뒤로 가기 규칙은 lib/nav.ts */
 function useHashTab(): [TabId, (t: TabId) => void] {
-  const read = (): TabId => {
-    const h = window.location.hash.slice(1)
-    return (TABS.some((t) => t.id === h) ? h : 'today') as TabId
-  }
-  const [tab, setTab] = useState<TabId>(read)
-  useEffect(() => {
-    const onHash = () => setTab(read())
-    window.addEventListener('hashchange', onHash)
-    return () => window.removeEventListener('hashchange', onHash)
-  }, [])
-  const go = (t: TabId) => {
-    window.location.hash = t
-    window.scrollTo(0, 0)
-  }
-  return [tab, go]
+  const [tab, setTab] = useState<TabId>(() => {
+    initTabHistory()
+    return readTab()
+  })
+  useEffect(() => onTabChange(() => setTab(readTab())), [])
+  return [tab, goTab]
 }
 
 function Shell() {
