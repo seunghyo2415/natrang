@@ -1,0 +1,134 @@
+{
+  "tripName": "나트랑 여행",
+  "flightInfo": {
+    "source": "트립닷컴 전자항공권 (이름·예약번호는 개인정보라 앱에 넣지 않음)",
+    "arriveHoursBefore": 3,
+    "baggage": [
+      { "label": "개인 물품", "text": "1개 — 앞 좌석 아래에 둘 수 있는 크기" },
+      { "label": "기내 수하물", "text": "1인 1개, 7kg 이하, 56×36×23cm 이내" },
+      { "label": "위탁 수하물", "text": "1인 1개, 20kg 이하, 119×119×81cm 이내" }
+    ],
+    "flights": [
+      {
+        "id": "outbound",
+        "label": "가는 편",
+        "flightNo": "VJ991",
+        "airline": "비엣젯항공 (VietJet Air)",
+        "depart": { "airport": "김해국제공항", "code": "PUS", "terminal": "국제선", "date": "2026-12-17", "time": "07:35", "tz": "Asia/Seoul" },
+        "arrive": { "airport": "깜란국제공항", "code": "CXR", "terminal": "T2", "date": "2026-12-17", "time": "10:35", "tz": "Asia/Ho_Chi_Minh" },
+        "scheduleItemId": "d1-04",
+        "airportArrivalItemId": "d1-02"
+      },
+      {
+        "id": "return",
+        "label": "오는 편",
+        "flightNo": "VJ990",
+        "airline": "비엣젯항공 (VietJet Air)",
+        "depart": { "airport": "깜란국제공항", "code": "CXR", "terminal": "T2", "date": "2026-12-21", "time": "00:05", "tz": "Asia/Ho_Chi_Minh" },
+        "arrive": { "airport": "김해국제공항", "code": "PUS", "terminal": "국제선", "date": "2026-12-21", "time": "06:30", "tz": "Asia/Seoul" },
+        "scheduleItemId": "d5-01",
+        "airportArrivalItemId": "d4-15",
+        "dateWarning": "항공권에는 12월 21일로 적혀 있지만, 실제로는 12월 20일(일) 밤 자정 직후 출발이에요. 20일 밤에 공항에 가야 해요!"
+      }
+    ]
+  },
+  "vndPerKrw": 19.46,
+  "choices": {
+    "d4-massage": {
+      "label": "4일차 마사지 장소",
+      "options": ["maul-spa", "ocean-spa"],
+      "default": "maul-spa"
+    }
+  },
+  "days": [
+    {
+      "day": 1,
+      "date": "2026-12-17",
+      "weekday": "목",
+      "items": [
+        { "id": "d1-01", "start": "04:30", "end": "05:30", "tz": "Asia/Seoul", "title": "밀양 출발 → 김해공항 이동", "placeLabel": "밀양 → 김해공항", "from": "miryang", "to": "gimhae-airport", "note": "자가용, 교통상황에 따라 변동", "kind": "move" },
+        { "id": "d1-02", "start": "05:30", "end": "07:00", "tz": "Asia/Seoul", "title": "공항 도착 및 출국 수속", "placeLabel": "김해공항", "place": "gimhae-airport", "note": "국제선 체크인 및 보안검색", "kind": "airport" },
+        { "id": "d1-03", "start": "07:00", "end": "07:35", "tz": "Asia/Seoul", "title": "탑승구 이동 및 탑승", "placeLabel": "김해공항", "place": "gimhae-airport", "kind": "airport" },
+        { "id": "d1-04", "start": "07:35", "end": "10:35", "tz": "Asia/Seoul", "endTz": "Asia/Ho_Chi_Minh", "title": "부산 → 나트랑 ✈️ VJ991", "placeLabel": "김해공항 국제선 → 깜란공항 T2", "from": "gimhae-airport", "to": "camranh-airport", "cost": { "amount": 896950, "currency": "KRW" }, "note": "비엣젯항공 VJ991 · 비용은 엑셀의 항공권 금액", "kind": "flight" },
+        { "id": "d1-05", "start": "10:35", "end": "11:30", "tz": "Asia/Ho_Chi_Minh", "title": "나트랑 도착 및 입국 수속", "placeLabel": "깜란공항", "place": "camranh-airport", "note": "예상 시간", "kind": "airport" },
+        { "id": "d1-06", "start": "11:30", "end": "12:00", "tz": "Asia/Ho_Chi_Minh", "title": "유심/eSIM 확인 및 환전", "placeLabel": "깜란공항", "place": "camranh-airport", "note": "2층 환전소에서 환전 가능", "kind": "prep" },
+        { "id": "d1-07", "start": "12:00", "end": "12:30", "tz": "Asia/Ho_Chi_Minh", "title": "공항 → 엠어이 이동", "placeLabel": "깜란공항 → 엠어이 깜란", "from": "camranh-airport", "to": "emoi", "cost": { "amount": 150000, "currency": "VND" }, "note": "엠어이 픽업 예약 필요(유료), 당일 예약, 안 되면 그랩", "kind": "move" },
+        { "id": "d1-08", "start": "12:30", "end": "13:30", "tz": "Asia/Ho_Chi_Minh", "title": "점심 식사", "placeLabel": "엠어이 깜란", "place": "emoi", "cost": { "amount": 800000, "currency": "VND" }, "note": "베트남 현지식·해산물, 카드 가능(수수료 발생)", "kind": "meal" },
+        { "id": "d1-09", "start": "13:30", "end": "14:00", "tz": "Asia/Ho_Chi_Minh", "title": "근처 필요 물품 쇼핑", "placeLabel": "동호마트", "place": "dongho", "note": "물·음료·술·과자 등", "kind": "shopping" },
+        { "id": "d1-10", "start": "14:00", "end": "14:30", "tz": "Asia/Ho_Chi_Minh", "title": "리조트 이동", "placeLabel": "엠어이 깜란 → 알마 리조트", "from": "emoi", "to": "alma", "cost": { "amount": 100000, "currency": "VND" }, "note": "엠어이 픽업 예약 필요(유료), 안 되면 그랩", "kind": "move" },
+        { "id": "d1-11", "start": "14:30", "end": "15:00", "tz": "Asia/Ho_Chi_Minh", "title": "체크인 및 짐 정리", "placeLabel": "알마 리조트", "place": "alma", "cost": { "amount": 799455, "currency": "KRW" }, "note": "체크인 14시부터", "kind": "checkin" },
+        { "id": "d1-12", "start": "15:00", "end": "17:15", "tz": "Asia/Ho_Chi_Minh", "title": "자유시간", "placeLabel": "알마 리조트", "place": "alma", "kind": "free" },
+        { "id": "d1-13", "start": "17:15", "end": "17:30", "tz": "Asia/Ho_Chi_Minh", "title": "마사지 이동", "placeLabel": "알마 리조트 → 마울스파", "from": "alma", "to": "maul-spa", "note": "마울스파 픽업 예약 필요", "kind": "move" },
+        { "id": "d1-14", "start": "17:30", "end": "19:00", "tz": "Asia/Ho_Chi_Minh", "title": "마사지", "placeLabel": "마울스파", "place": "maul-spa", "cost": { "amount": 1980000, "currency": "VND" }, "note": "90분 코스", "kind": "massage" },
+        { "id": "d1-15", "start": "19:00", "end": "19:15", "tz": "Asia/Ho_Chi_Minh", "title": "희망씨푸드 이동", "placeLabel": "마울스파 → 희망씨푸드", "from": "maul-spa", "to": "hope-seafood", "note": "마울스파 픽드랍 서비스", "kind": "move" },
+        { "id": "d1-16", "start": "19:15", "end": "21:00", "tz": "Asia/Ho_Chi_Minh", "title": "저녁 식사", "placeLabel": "희망씨푸드", "place": "hope-seafood", "cost": { "amount": 2000000, "currency": "VND" }, "note": "랍스터·조개 등 해산물", "kind": "meal" },
+        { "id": "d1-17", "start": "21:00", "end": "21:15", "tz": "Asia/Ho_Chi_Minh", "title": "리조트 복귀", "placeLabel": "희망씨푸드 → 알마 리조트", "from": "hope-seafood", "to": "alma", "note": "희망씨푸드 픽드랍 서비스", "kind": "move" },
+        { "id": "d1-18", "start": "21:15", "tz": "Asia/Ho_Chi_Minh", "title": "리조트 휴식", "placeLabel": "알마 리조트", "place": "alma", "kind": "rest" }
+      ]
+    },
+    {
+      "day": 2,
+      "date": "2026-12-18",
+      "weekday": "금",
+      "items": [
+        { "id": "d2-01", "start": "07:30", "end": "08:30", "tz": "Asia/Ho_Chi_Minh", "title": "아침 식사", "placeLabel": "알마 리조트", "place": "alma", "note": "조식", "kind": "meal" },
+        { "id": "d2-02", "start": "08:30", "end": "12:30", "tz": "Asia/Ho_Chi_Minh", "title": "자유시간", "placeLabel": "알마 리조트", "place": "alma", "kind": "free" },
+        { "id": "d2-03", "start": "12:30", "end": "13:00", "tz": "Asia/Ho_Chi_Minh", "title": "나트랑 시내로 이동", "placeLabel": "알마 리조트 → 나트랑 시내", "from": "alma", "to": "nhatrang-city", "note": "그랩, 약 400,000동(약 2.2만 원), 귀국 후 정산", "kind": "move" },
+        { "id": "d2-04", "start": "13:00", "end": "14:00", "tz": "Asia/Ho_Chi_Minh", "title": "점심 식사", "placeLabel": "마담프엉", "place": "madam-phuong", "placeOptions": ["madam-phuong", "banhmi-phan2"], "cost": { "amount": 650000, "currency": "VND" }, "note": "곱창국수·쌀국수, 반미(반미판2)로 변경 또는 둘 다 가능", "kind": "meal" },
+        { "id": "d2-05", "start": "14:00", "end": "15:00", "tz": "Asia/Ho_Chi_Minh", "title": "나트랑 시내 구경", "placeLabel": "나트랑 시내", "place": "nhatrang-city", "note": "해변, 시내 구경, 젤라또", "kind": "sightseeing" },
+        { "id": "d2-06", "start": "15:00", "end": "16:30", "tz": "Asia/Ho_Chi_Minh", "title": "카페 방문", "placeLabel": "나트랑 시내", "place": "than-greenery", "placeOptions": ["than-greenery", "dinos-gelato"], "cost": { "amount": 500000, "currency": "VND" }, "note": "카페는 정해지지 않음 — 기본 후보 Than - The Greenery", "kind": "cafe" },
+        { "id": "d2-07", "start": "16:30", "end": "18:00", "tz": "Asia/Ho_Chi_Minh", "title": "시내 쇼핑 및 기념품 구경", "placeLabel": "나트랑 시내", "place": "nhatrang-city", "kind": "shopping" },
+        { "id": "d2-08", "start": "18:00", "end": "19:00", "tz": "Asia/Ho_Chi_Minh", "title": "저녁 식사", "placeLabel": "MAM' 레스토랑", "place": "mam", "cost": { "amount": 1300000, "currency": "VND" }, "note": "베트남 현지 음식", "kind": "meal" },
+        { "id": "d2-09", "start": "19:00", "end": "20:00", "tz": "Asia/Ho_Chi_Minh", "title": "야시장 구경", "placeLabel": "나트랑 야시장", "place": "night-market", "kind": "sightseeing" },
+        { "id": "d2-10", "start": "20:00", "end": "20:30", "tz": "Asia/Ho_Chi_Minh", "title": "알마 리조트 복귀", "placeLabel": "나트랑 시내 → 알마 리조트", "from": "nhatrang-city", "to": "alma", "cost": { "amount": 500000, "currency": "VND" }, "note": "그랩, 귀국 후 정산", "kind": "move" },
+        { "id": "d2-11", "start": "20:30", "tz": "Asia/Ho_Chi_Minh", "title": "휴식", "placeLabel": "알마 리조트", "place": "alma", "kind": "rest" }
+      ]
+    },
+    {
+      "day": 3,
+      "date": "2026-12-19",
+      "weekday": "토",
+      "items": [
+        { "id": "d3-01", "start": "08:00", "end": "09:00", "tz": "Asia/Ho_Chi_Minh", "title": "아침 식사", "placeLabel": "알마 리조트", "place": "alma", "note": "조식", "kind": "meal" },
+        { "id": "d3-02", "start": "09:00", "end": "10:00", "tz": "Asia/Ho_Chi_Minh", "title": "리조트에서 휴식", "placeLabel": "알마 리조트", "place": "alma", "kind": "rest" },
+        { "id": "d3-03", "start": "10:00", "end": "12:00", "tz": "Asia/Ho_Chi_Minh", "title": "마사지 (선택)", "placeLabel": "오션 스파", "place": "ocean-spa", "cost": { "amount": 1782000, "currency": "VND" }, "note": "120분 코스, 해도 되고 안 해도 됨", "kind": "massage", "optional": true },
+        { "id": "d3-04", "start": "12:00", "end": "13:00", "tz": "Asia/Ho_Chi_Minh", "title": "점심 식사", "placeLabel": "알마 리조트", "place": "alma", "cost": { "amount": 2000000, "currency": "VND" }, "note": "리조트 식당", "kind": "meal" },
+        { "id": "d3-05", "start": "13:00", "end": "19:00", "tz": "Asia/Ho_Chi_Minh", "title": "리조트 휴식", "placeLabel": "알마 리조트", "place": "alma", "kind": "rest" },
+        { "id": "d3-06", "start": "19:00", "end": "20:00", "tz": "Asia/Ho_Chi_Minh", "title": "저녁 식사", "placeLabel": "알마 리조트", "place": "alma", "placeOptions": ["alma", "camranh-spoon"], "cost": { "amount": 1500000, "currency": "VND" }, "note": "배달(족발·치킨) 또는 한식(스푼), 배달앱·배달 가능 여부 미리 확인", "kind": "meal" },
+        { "id": "d3-07", "start": "20:00", "tz": "Asia/Ho_Chi_Minh", "title": "리조트 휴식", "placeLabel": "알마 리조트", "place": "alma", "kind": "rest" }
+      ]
+    },
+    {
+      "day": 4,
+      "date": "2026-12-20",
+      "weekday": "일",
+      "items": [
+        { "id": "d4-01", "start": "07:30", "end": "08:30", "tz": "Asia/Ho_Chi_Minh", "title": "아침 식사", "placeLabel": "알마 리조트", "place": "alma", "note": "조식", "kind": "meal" },
+        { "id": "d4-02", "start": "08:30", "end": "11:30", "tz": "Asia/Ho_Chi_Minh", "title": "자유시간", "placeLabel": "알마 리조트", "place": "alma", "kind": "free" },
+        { "id": "d4-03", "start": "11:30", "end": "12:00", "tz": "Asia/Ho_Chi_Minh", "title": "체크아웃", "placeLabel": "알마 리조트", "place": "alma", "note": "짐 보관 가능한지 물어보기", "kind": "checkin" },
+        { "id": "d4-04", "start": "12:00", "end": "12:30", "tz": "Asia/Ho_Chi_Minh", "title": "점심 장소 이동", "placeLabel": "알마 리조트 → 엠어이 깜란", "from": "alma", "to": "emoi", "note": "그랩, 약 100,000동(약 5천 원)", "kind": "move" },
+        { "id": "d4-05", "start": "12:30", "end": "13:30", "tz": "Asia/Ho_Chi_Minh", "title": "점심 식사", "placeLabel": "엠어이 깜란", "place": "emoi", "cost": { "amount": 800000, "currency": "VND" }, "note": "재방문", "kind": "meal" },
+        { "id": "d4-06", "start": "13:30", "end": "15:30", "tz": "Asia/Ho_Chi_Minh", "title": "깜란 시내 관광 및 쇼핑", "placeLabel": "깜란 시내", "place": "camranh-city", "note": "바리바리 기프트샵, 동호마트, 카페", "kind": "shopping" },
+        { "id": "d4-07", "start": "15:30", "end": "16:00", "tz": "Asia/Ho_Chi_Minh", "title": "마사지 이동 및 준비", "placeLabel": "깜란 시내 → 마사지샵", "from": "camranh-city", "to": "choice:d4-massage", "kind": "move" },
+        { "id": "d4-08", "start": "16:00", "end": "18:00", "tz": "Asia/Ho_Chi_Minh", "title": "마사지", "placeLabel": "마울스파 또는 오션 스파", "place": "choice:d4-massage", "cost": { "amount": 2100000, "currency": "VND" }, "note": "120분, 둘 중 더 좋았던 곳 재방문", "kind": "massage" },
+        { "id": "d4-09", "start": "18:00", "end": "18:30", "tz": "Asia/Ho_Chi_Minh", "title": "샤워·정리", "placeLabel": "마사지샵", "place": "choice:d4-massage", "kind": "prep" },
+        { "id": "d4-10", "start": "18:30", "end": "18:45", "tz": "Asia/Ho_Chi_Minh", "title": "알마 리조트로 이동", "placeLabel": "마사지샵 → 알마 리조트", "from": "choice:d4-massage", "to": "alma", "note": "마사지샵 픽드랍", "kind": "move" },
+        { "id": "d4-11", "start": "18:45", "end": "19:00", "tz": "Asia/Ho_Chi_Minh", "title": "짐 찾기", "placeLabel": "알마 리조트", "place": "alma", "kind": "prep" },
+        { "id": "d4-12", "start": "19:00", "end": "19:15", "tz": "Asia/Ho_Chi_Minh", "title": "저녁 장소 이동", "placeLabel": "알마 리조트 → 쏨비엔", "from": "alma", "to": "xom-bien", "note": "쏨비엔 픽업 서비스", "kind": "move" },
+        { "id": "d4-13", "start": "19:15", "end": "21:00", "tz": "Asia/Ho_Chi_Minh", "title": "저녁 식사", "placeLabel": "쏨비엔", "place": "xom-bien", "cost": { "amount": 2500000, "currency": "VND" }, "note": "해산물", "kind": "meal" },
+        { "id": "d4-14", "start": "21:00", "end": "21:30", "tz": "Asia/Ho_Chi_Minh", "title": "깜란공항 이동", "placeLabel": "쏨비엔 → 깜란공항", "from": "xom-bien", "to": "camranh-airport", "note": "쏨비엔 픽드랍", "kind": "move" },
+        { "id": "d4-15", "start": "21:30", "end": "23:30", "tz": "Asia/Ho_Chi_Minh", "title": "공항 도착 및 출국 수속", "placeLabel": "깜란공항", "place": "camranh-airport", "kind": "airport" },
+        { "id": "d4-16", "start": "23:30", "end": "00:05", "endDayOffset": 1, "tz": "Asia/Ho_Chi_Minh", "title": "탑승구 이동 및 탑승", "placeLabel": "깜란공항", "place": "camranh-airport", "kind": "airport" }
+      ]
+    },
+    {
+      "day": 5,
+      "date": "2026-12-21",
+      "weekday": "월",
+      "items": [
+        { "id": "d5-01", "start": "00:05", "end": "06:30", "tz": "Asia/Ho_Chi_Minh", "endTz": "Asia/Seoul", "title": "나트랑 → 부산 ✈️ VJ990", "placeLabel": "깜란공항 T2 → 김해공항 국제선", "from": "camranh-airport", "to": "gimhae-airport", "note": "비엣젯항공 VJ990", "kind": "flight" },
+        { "id": "d5-02", "start": "06:30", "tz": "Asia/Seoul", "title": "김해공항 도착, 여행 종료", "placeLabel": "김해공항", "place": "gimhae-airport", "kind": "end" }
+      ]
+    }
+  ]
+}

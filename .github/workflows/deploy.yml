@@ -1,0 +1,50 @@
+# 자동 배포 설정 (GitHub Actions)
+# GitHub에 코드를 올릴(push) 때마다 GitHub의 컴퓨터가 알아서
+#   ① 시험 문제(테스트) 풀기 → ② 앱 완성본 만들기(빌드) → ③ GitHub Pages 주소에 올리기
+# 를 해 줘요. 시험에서 하나라도 틀리면 올리지 않아서, 망가진 앱이 폰에 가지 않아요.
+name: 배포
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # Actions 화면에서 「Run workflow」 버튼으로 직접 돌릴 수도 있게
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: 시험 문제 풀기
+        run: npm test
+      - name: 앱 완성본 만들기
+        run: npm run build
+        env:
+          # 주소가 https://아이디.github.io/저장소이름/ 이라서 폴더 이름을 알려 줌
+          BASE_PATH: /${{ github.event.repository.name }}/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

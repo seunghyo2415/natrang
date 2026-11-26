@@ -1,0 +1,303 @@
+{
+  "emergency": {
+    "verifiedAt": "2026-11-26",
+    "note": "번호는 외교부 공식 누리집에서 직접 확인한 것만 넣었어요. 출국 직전에 한 번 더 확인하세요.",
+    "groups": [
+      {
+        "title": "🇻🇳 베트남 현지 긴급번호",
+        "items": [
+          { "label": "경찰 (범죄 신고)", "number": "113" },
+          { "label": "응급의료 (구급차)", "number": "115" },
+          { "label": "소방", "number": "114" }
+        ],
+        "tip": "현지 긴급번호는 베트남어로 통화해야 할 수 있어요. 호텔·식당 직원이나 주변 사람에게 도움을 요청하세요.",
+        "source": "https://vn.mofa.go.kr/vn-ko/brd/m_27022/view.do?seq=1339277",
+        "sourceLabel": "주호치민 총영사관 안전 안내 (달랏–냐짱 구간, 2026-01-28 수정)"
+      },
+      {
+        "title": "🇰🇷 영사안전콜센터 (24시간)",
+        "items": [{ "label": "사건사고 · 베트남어 통역 지원", "number": "+82-2-3210-0404" }],
+        "tip": "어디서든 먼저 걸어도 되는 번호예요. 「영사안전콜센터 무료전화앱」을 설치하면 무료 통화가 돼요.",
+        "source": "https://overseas.mofa.go.kr/vn-ko/wpge/m_2191/contents.do",
+        "sourceLabel": "주베트남 대사관 주소 및 연락처"
+      },
+      {
+        "title": "🏛️ 주호치민 대한민국 총영사관 (냐짱 지역 안전공지 담당)",
+        "items": [
+          { "label": "근무시간 외 사건사고 긴급", "number": "+84-93-850-0238" },
+          { "label": "사건사고 (근무시간 08:30~12:00, 13:30~17:30)", "number": "+84-28-3824-2639" },
+          { "label": "대표번호 (근무시간)", "number": "+84-28-3822-5757" }
+        ],
+        "tip": "주소: 107 Nguyen Du St., Ben Thanh Ward, HCMC",
+        "source": "https://overseas.mofa.go.kr/vn-hochiminh-ko/wpge/m_3987/contents.do",
+        "sourceLabel": "주호치민 총영사관 주소 및 연락처"
+      },
+      {
+        "title": "🏛️ 주베트남 대한민국 대사관 (하노이)",
+        "items": [{ "label": "사건사고·업무시간 외 비상연락(당직)", "number": "+84-90-402-6126" }],
+        "source": "https://overseas.mofa.go.kr/vn-ko/wpge/m_2191/contents.do",
+        "sourceLabel": "주베트남 대사관 주소 및 연락처"
+      }
+    ]
+  },
+  "itemTips": [
+    {
+      "id": "airport",
+      "title": "✈️ 공항·출입국",
+      "when": { "kinds": ["flight", "airport"] },
+      "bring": ["여권 (남은 기간 6개월 이상)", "항공권 (트립닷컴 앱 또는 PDF)", "보조배터리는 기내 가방에"],
+      "cautions": [
+        "항공권 안내: 출발 3시간 전 공항 도착 권장",
+        "기내 액체류는 100ml 이하 용기, 1L 투명 지퍼백 하나에",
+        "보조배터리는 위탁 수하물(부치는 짐)에 넣으면 안 돼요",
+        "비엣젯 수하물: 기내 1개 7kg, 위탁 1개 20kg (1인당)"
+      ]
+    },
+    {
+      "id": "money",
+      "title": "💵 환전·결제",
+      "when": { "ids": ["d1-06"], "kinds": ["shopping", "meal", "cafe", "massage"] },
+      "bring": ["동화 소액권 (10,000·20,000·50,000동)", "해외 결제 되는 카드"],
+      "cautions": [
+        "동화는 0이 많아 헷갈려요 — 「체크」 탭의 원↔동 계산기로 확인",
+        "어림셈: 동에서 0 하나 빼고 반으로 나누면 대략 원 (100,000동 ≈ 5,000원)",
+        "카드 결제는 수수료가 붙는 곳이 있어요 — 결제 전에 물어보기",
+        "색이 비슷한 지폐가 있어요 (예: 20,000동과 500,000동은 둘 다 파란색 계열) — 낼 때 0 개수를 꼭 확인"
+      ]
+    },
+    {
+      "id": "grab",
+      "title": "🚕 그랩·차량 이동",
+      "when": { "kinds": ["move"] },
+      "bring": ["그랩 앱 (로그인·결제수단 등록)", "목적지 주소 (앱의 「주소 복사」)"],
+      "cautions": [
+        "탈 때 앱에 나온 차량 번호판과 실제 차를 꼭 비교",
+        "3명 + 캐리어면 큰 차(7인승)가 필요할 수 있어요",
+        "픽업 예약이면 출발 전에 시간·장소를 다시 확인"
+      ]
+    },
+    {
+      "id": "massage",
+      "title": "💆 마사지",
+      "when": { "kinds": ["massage"] },
+      "bring": ["현금 (팁용 소액권)"],
+      "cautions": [
+        "팁이 가격에 포함됐는지 미리 물어보기",
+        "휴대폰·지갑 등 귀중품은 몸에 지니거나 보관함에",
+        "픽업·드롭 시간을 예약 메시지로 다시 확인"
+      ]
+    },
+    {
+      "id": "seafood",
+      "title": "🦞 해산물 식당",
+      "when": { "places": ["hope-seafood", "xom-bien", "emoi", "jj-seafood"] },
+      "bring": [],
+      "cautions": [
+        "주문 전에 가격 기준 확인 — kg당인지 100g당인지 물어보기",
+        "무게를 잴 때 직접 보기",
+        "계산서에 시키지 않은 항목이 없는지 확인"
+      ]
+    },
+    {
+      "id": "city",
+      "title": "🏙️ 시내·야시장",
+      "when": { "places": ["nhatrang-city", "night-market", "madam-phuong", "mam", "camranh-city"] },
+      "bring": ["작은 크로스백 (몸 앞으로)"],
+      "cautions": [
+        "오토바이 날치기 주의 — 휴대폰을 찻길 쪽 손에 들지 않기",
+        "사람 많은 곳에선 가방을 앞으로",
+        "야시장은 흥정이 기본 — 처음 부른 값보다 깎아 보기",
+        "길 건널 때 오토바이가 피해 가도록 일정한 속도로 천천히"
+      ]
+    },
+    {
+      "id": "resort",
+      "title": "🏨 리조트",
+      "when": { "kinds": ["checkin"] },
+      "bring": ["숙소 예약 확인서", "여권 (체크인 때 필요)"],
+      "cautions": ["체크인은 14시부터", "체크아웃 때 짐 보관 가능한지 물어보기"]
+    },
+    {
+      "id": "lastday",
+      "title": "🧳 마지막 날",
+      "when": { "days": [4] },
+      "bring": ["갈아입을 옷 (마사지·샤워 후)", "여권·항공권 (꺼내기 쉬운 곳에)"],
+      "cautions": [
+        "체크아웃 후 캐리어 3개 보관 장소 확인 (리조트 또는 마사지샵)",
+        "귀국편은 20일 밤 → 21일 00:05 출발! 공항 도착 권장 21:05",
+        "남은 동화는 바리바리·동호마트에서 쓰거나 공항 가기 전에 정리 (한국에서 재환전은 손해가 커요)"
+      ]
+    },
+    {
+      "id": "common",
+      "title": "☀️ 공통 (날씨·건강)",
+      "when": {},
+      "bring": ["우산 또는 우비", "선크림", "모기 기피제", "생수"],
+      "cautions": [
+        "12월은 중부 베트남 우기 끝자락 — 폭우·산사태 공지가 나올 수 있으니 외교부 안전 공지 확인",
+        "물은 꼭 병에 든 생수만",
+        "더운 날엔 그늘에서 자주 쉬기"
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "pool",
+      "when": { "places": ["alma"], "kinds": ["free", "rest"], "from": "07:00", "to": "17:00" },
+      "icon": "🏊",
+      "title": "리조트 수영장에서 쉬기",
+      "text": "선크림은 물에 들어가기 20분 전에 바르고, 2시간마다 다시 발라 주세요. 물도 자주 마시기!"
+    },
+    {
+      "id": "morning-walk",
+      "when": { "places": ["alma"], "kinds": ["free"], "from": "07:00", "to": "11:00" },
+      "icon": "📸",
+      "title": "아침 리조트 산책·사진",
+      "text": "햇볕이 덜 뜨거운 오전에 리조트 곳곳을 걸으며 사진 남기기 좋아요."
+    },
+    {
+      "id": "sunset-beach",
+      "when": { "places": ["alma"], "kinds": ["free", "rest"], "from": "15:30", "to": "18:00" },
+      "icon": "🌅",
+      "title": "해 질 무렵 해변 산책",
+      "text": "12월 나트랑은 오후 5시 전후로 해가 져요. 바람이 선선해지는 시간에 리조트 앞 해변을 걸어 보세요."
+    },
+    {
+      "id": "siesta",
+      "when": { "places": ["alma"], "kinds": ["rest"], "from": "12:00", "to": "16:00" },
+      "icon": "😴",
+      "title": "한낮엔 시원한 방에서 낮잠",
+      "text": "가장 더운 시간엔 무리하지 말고 쉬어 가요. 휴식도 일정이에요."
+    },
+    {
+      "id": "night-day1",
+      "when": { "places": ["alma"], "kinds": ["rest"], "days": [1], "from": "20:00", "to": "23:59" },
+      "icon": "📱",
+      "title": "내일은 나트랑 시내!",
+      "text": "그랩 앱 로그인·결제수단을 확인하고, 휴대폰·보조배터리를 충전해 두세요."
+    },
+    {
+      "id": "night-day3",
+      "when": { "places": ["alma"], "kinds": ["rest"], "days": [3], "from": "18:00", "to": "23:59" },
+      "icon": "🧳",
+      "title": "내일은 체크아웃 날 — 짐 미리 싸기",
+      "text": "내일 입을 옷·샤워용품만 빼고 캐리어를 미리 정리해 두세요. 여권 위치도 확인!"
+    },
+    {
+      "id": "night-generic",
+      "when": { "places": ["alma"], "kinds": ["rest"], "days": [2], "from": "20:00", "to": "23:59" },
+      "icon": "🔋",
+      "title": "내일 준비",
+      "text": "오늘 쓴 금액을 앱에 입력하고, 휴대폰·보조배터리 충전, 마실 물 챙겨 두기."
+    },
+    {
+      "id": "gelato",
+      "when": { "places": ["nhatrang-city"], "kinds": ["sightseeing", "shopping"] },
+      "icon": "🍨",
+      "title": "젤라또 한 컵",
+      "text": "시내 구경하다 더우면 Dino's Shibuya Toast & Gelato에서 쉬어 가요.",
+      "placeId": "dinos-gelato"
+    },
+    {
+      "id": "cafe-than",
+      "when": { "places": ["nhatrang-city"], "kinds": ["sightseeing", "shopping"] },
+      "icon": "☕",
+      "title": "카페 후보: Than - The Greenery",
+      "text": "2일차 카페 방문 기본 후보로 저장해 둔 곳이에요.",
+      "placeId": "than-greenery"
+    },
+    {
+      "id": "local-food",
+      "when": { "places": ["nhatrang-city"], "kinds": ["sightseeing", "shopping"] },
+      "icon": "🍢",
+      "title": "출출하면 로컬 식당",
+      "text": "NEM NƯỚNG HƯNG HÒA — 저장해 둔 나트랑 시내 로컬 식당이에요.",
+      "placeId": "nem-nuong-hung-hoa"
+    },
+    {
+      "id": "baribari",
+      "when": { "places": ["camranh-city"], "kinds": ["shopping", "sightseeing"] },
+      "icon": "🎁",
+      "title": "기념품은 바리바리",
+      "text": "깜란 바리바리 기프트샵 — 기념품·간식 쇼핑. 남은 동화를 여기서 쓰면 좋아요.",
+      "placeId": "baribari"
+    },
+    {
+      "id": "dongho",
+      "when": { "places": ["camranh-city"], "kinds": ["shopping", "sightseeing"] },
+      "icon": "🛒",
+      "title": "동호마트에서 간식·커피",
+      "text": "베트남 커피, 말린 과일, 라면 등 귀국 선물용 간식을 사기 좋아요.",
+      "placeId": "dongho"
+    },
+    {
+      "id": "water",
+      "when": { "kinds": ["free", "rest"] },
+      "icon": "💧",
+      "title": "물 마시고 그늘에서 쉬기",
+      "text": "더운 날씨엔 생각보다 땀을 많이 흘려요. 생수(병에 든 물)만 마시기."
+    }
+  ],
+  "situations": [
+    {
+      "id": "rain",
+      "icon": "🌧️",
+      "title": "비가 올 때",
+      "steps": [
+        "12월 나트랑은 우기 끝자락이라 비가 올 수 있어요. 아침에 일기예보를 확인하고, 잠깐 실내에서 기다리며 상황을 보세요.",
+        "밖 일정은 실내로 바꾸기: 카페·디저트, 마사지, 리조트 안에서 휴식",
+        "이동은 걷지 말고 그랩으로. 우비·우산을 가방에 넣어 두기",
+        "오토바이가 많고 길이 미끄러우니 길 건널 때 특히 조심"
+      ],
+      "placeIds": ["than-greenery", "dinos-gelato", "hermes-spa"]
+    },
+    {
+      "id": "closed",
+      "icon": "🚪",
+      "title": "가게가 문 닫았을 때",
+      "steps": [
+        "위의 「근처 찾기」 버튼으로 같은 종류의 가게를 찾아요 (구글 지도에서 '영업 중' 필터)",
+        "저장해 둔 대안 식당으로 가기 (아래 목록)",
+        "예약한 곳이면 전화로 먼저 확인하기"
+      ],
+      "placeIds": ["an-toi", "jj-seafood", "nem-nuong-hung-hoa"]
+    },
+    {
+      "id": "no-grab",
+      "icon": "🚕",
+      "title": "그랩이 안 잡힐 때",
+      "steps": [
+        "픽업 위치를 큰길이나 호텔·식당 정문으로 옮겨서 다시 호출",
+        "차량 종류 바꿔 보기 (3명 + 짐이면 7인승도 고려)",
+        "몇 분 뒤 다시 시도 (비 오는 날·저녁 시간엔 잘 안 잡혀요)",
+        "리조트·식당 직원에게 택시를 불러 달라고 부탁하기",
+        "베트남에서는 Xanh SM, Be 같은 다른 차량 호출 앱도 많이 써요 — 미리 설치해 두면 든든해요"
+      ],
+      "placeIds": []
+    },
+    {
+      "id": "no-pickup",
+      "icon": "🚐",
+      "title": "픽업 차량이 안 올 때",
+      "steps": [
+        "예약 메시지(카톡 등)에서 픽업 시간·장소를 다시 확인",
+        "가게에 바로 전화하기 (아래 장소의 📞 버튼) — 쏨비엔은 카카오톡 ID xombienseafood",
+        "10~15분 기다려도 안 오면 그랩으로 이동하고 가게에 알리기",
+        "기다리는 곳을 정확히 알려 주려면 구글 지도에서 내 위치를 공유"
+      ],
+      "placeIds": ["xom-bien", "hope-seafood", "emoi"]
+    },
+    {
+      "id": "late",
+      "icon": "⏰",
+      "title": "일정이 늦어졌을 때",
+      "steps": [
+        "위의 「+30분 미루기」를 누르면 그날 이후 일정이 같이 밀려요 (비행기·공항 수속 시간은 그대로)",
+        "덜 중요한 일정은 「건너뛰기」 (예: 3일차 선택 마사지)",
+        "예약한 곳(마사지·식당 픽업)에는 늦는다고 미리 연락",
+        "마지막 날은 공항 수속이 최우선! 항공권 안내: 출발 3시간 전 공항 도착 권장 (VJ990 00:05 출발 → 20일 21:05까지)"
+      ],
+      "placeIds": []
+    }
+  ]
+}

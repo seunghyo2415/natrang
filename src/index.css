@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* 앱 전체 기본: 큰 글씨, 밝은 휴양지 배경 / 다크 모드는 폰 설정을 따라감 */
+html {
+  font-size: 17px;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  @apply bg-sky-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100;
+  font-family: system-ui, -apple-system, "Noto Sans KR", "Malgun Gothic", sans-serif;
+}
+button {
+  cursor: pointer;
+}

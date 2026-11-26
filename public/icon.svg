@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- 나트랑 여행 도우미 아이콘: 하늘 · 해 · 바다 · 야자수 (가운데 80% 안에 그려서 동그랗게 잘려도 보이게) -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0284c7"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#sky)"/>
+  <circle cx="330" cy="200" r="70" fill="#fde047"/>
+  <path d="M0 330 Q64 305 128 330 T256 330 T384 330 T512 330 V512 H0 Z" fill="#0369a1"/>
+  <path d="M0 370 Q64 345 128 370 T256 370 T384 370 T512 370 V512 H0 Z" fill="#075985"/>
+  <path d="M60 512 Q160 430 300 440 Q400 450 512 420 V512 Z" fill="#fcd34d"/>
+  <!-- 야자수 -->
+  <path d="M190 440 Q200 330 175 230" stroke="#78350f" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <g fill="#16a34a">
+    <path d="M175 230 Q120 190 80 220 Q125 205 175 230 Z"/>
+    <path d="M175 230 Q140 160 95 160 Q140 180 175 230 Z"/>
+    <path d="M175 230 Q190 155 240 140 Q205 175 175 230 Z"/>
+    <path d="M175 230 Q235 190 275 215 Q225 205 175 230 Z"/>
+    <path d="M175 230 Q215 240 240 290 Q205 250 175 230 Z"/>
+  </g>
+</svg>
