@@ -2,7 +2,8 @@
 import { describe, expect, it } from 'vitest'
 import scheduleJson from '../data/schedule.json'
 import type { Schedule } from '../types'
-import { destinationOf, displayPlaceLabel } from './places'
+import { destinationOf, displayPlaceLabel, nextSpotInArea } from './places'
+import { buildTimeline } from './time'
 import { emergency, tipsFor } from './tips'
 
 const schedule = scheduleJson as Schedule
@@ -36,6 +37,15 @@ describe('장소 고르기', () => {
   })
   it('고르기 전에는 엑셀에 적힌 글자 그대로', () => {
     expect(displayPlaceLabel(item('d4-08'), schedule, {}, false)).toBe('마울스파 또는 오션 스파')
+  })
+  it('넓은 지역(시내)으로 가는 일정은 다음 일정 장소를 먼저 추천한다', () => {
+    const tl = buildTimeline(schedule)
+    expect(nextSpotInArea(item('d2-03'), tl, schedule, {})).toBe('madam-phuong') // 시내 이동 → 점심
+    expect(nextSpotInArea(item('d2-03'), tl, schedule, { 'd2-04': 'banhmi-phan2' })).toBe('banhmi-phan2') // 점심을 바꾸면 따라감
+    expect(nextSpotInArea(item('d2-05'), tl, schedule, {})).toBe('than-greenery') // 시내 구경 → 카페
+    expect(nextSpotInArea(item('d2-07'), tl, schedule, {})).toBe('mam') // 시내 쇼핑 → 저녁
+    expect(nextSpotInArea(item('d4-06'), tl, schedule, {})).toBeUndefined() // 다음이 마사지(지역 밖)면 추천 없음
+    expect(nextSpotInArea(item('d1-07'), tl, schedule, {})).toBeUndefined() // 지역이 아닌 일정
   })
   it('2일차 점심을 반미판2로 바꾸면 목적지가 바뀐다', () => {
     expect(destinationOf(item('d2-04'), schedule, { 'd2-04': 'banhmi-phan2' })?.id).toBe('banhmi-phan2')

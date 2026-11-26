@@ -13,7 +13,7 @@ import { PlaceActions } from '../components/PlaceActions'
 import { SpendTotals } from '../components/SpendTotals'
 import type { EditedItem } from '../lib/edits'
 import { comma, summarizeSpending, totalInKrw } from '../lib/money'
-import { destinationOf, displayPlaceLabel, getPlace, resolveRef } from '../lib/places'
+import { destinationOf, displayPlaceLabel, getPlace, nextSpotInArea, resolveRef } from '../lib/places'
 import { pickRecommendations } from '../lib/recommend'
 import { daysUntil, formatDuration, HOME_TZ, isMarker, LOCAL_TZ, wallClock } from '../lib/time'
 import { useTrip } from '../state/trip'
@@ -119,7 +119,7 @@ function DuringTrip() {
 
 /** 지금 할 일 카드 */
 function NowCard({ item, nextItem, onExpense }: { item: EditedItem | null; nextItem: EditedItem | null; onExpense: (i: EditedItem) => void }) {
-  const { updateEdit, now, schedule, choices } = useTrip()
+  const { updateEdit, now, schedule, choices, timeline } = useTrip()
   if (!item) {
     return (
       <section className={card}>
@@ -166,8 +166,13 @@ function NowCard({ item, nextItem, onExpense }: { item: EditedItem | null; nextI
         </div>
       )}
       {item.note && <p className="mt-3 text-slate-700 dark:text-slate-300">💬 {item.note}</p>}
+      {/* 이동 중이면 길찾기·그랩·기사님께 보여주기 등 장소 버튼 전부 */}
+      {item.kind === 'move' && (
+        <div className="mt-4">
+          <PlaceActions place={dest} suggestId={nextSpotInArea(item, timeline, schedule, choices)} />
+        </div>
+      )}
       <div className="mt-4 flex flex-wrap gap-2">
-        {item.kind === 'move' && <DirectionsButton place={dest} />}
         <button
           onClick={() => onExpense(item)}
           className="rounded-2xl bg-white px-4 py-3 font-bold text-slate-800 shadow-sm dark:bg-slate-700 dark:text-slate-100"
@@ -187,7 +192,7 @@ function NowCard({ item, nextItem, onExpense }: { item: EditedItem | null; nextI
 
 /** 다음 일정 카드 */
 function NextCard({ item, current }: { item: EditedItem; current: EditedItem | null }) {
-  const { now, schedule, choices } = useTrip()
+  const { now, schedule, choices, timeline } = useTrip()
   const k = KIND_STYLE[item.kind]
   const until = item.startMs - now
   const t = itemTimeLabel(item)
@@ -229,7 +234,7 @@ function NextCard({ item, current }: { item: EditedItem; current: EditedItem | n
       )}
       {showDirections && (
           <div className="mt-3">
-            <PlaceActions place={dest} />
+            <PlaceActions place={dest} suggestId={nextSpotInArea(item, timeline, schedule, choices)} />
           </div>
         )}
     </section>

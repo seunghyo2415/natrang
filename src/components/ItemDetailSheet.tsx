@@ -2,7 +2,7 @@
 // 장소 버튼 · 장소 고르기 · 챙길 것/주의할 점 · 예약·연락처 · 일정 조정 · 시간/장소/메모 수정
 import { useState } from 'react'
 import type { EditedItem } from '../lib/edits'
-import { destinationOf, displayPlaceLabel, getPlace, isKnown, placeChoiceOf, resolveRef } from '../lib/places'
+import { destinationOf, displayPlaceLabel, getPlace, isKnown, nextSpotInArea, placeChoiceOf, resolveRef } from '../lib/places'
 import { tipsFor } from '../lib/tips'
 import { useTrip } from '../state/trip'
 import { ExpenseSheet } from './ExpenseSheet'
@@ -15,7 +15,7 @@ import { BigButton, Sheet } from './Sheet'
 const FIXED = new Set(['flight', 'end'])
 
 export function ItemDetailSheet({ item, onClose }: { item: EditedItem; onClose: () => void }) {
-  const { schedule, choices, setChoice, edits, updateEdit, resetEdit } = useTrip()
+  const { schedule, choices, setChoice, edits, updateEdit, resetEdit, timeline } = useTrip()
   const [editing, setEditing] = useState(false)
   const [expense, setExpense] = useState(false)
   const e = edits[item.id] ?? {}
@@ -75,7 +75,7 @@ export function ItemDetailSheet({ item, onClose }: { item: EditedItem; onClose: 
           <h3 className="mb-2 font-bold">
             🧭 {item.kind === 'move' ? '목적지' : '장소'}: {dest.name}
           </h3>
-          <PlaceActions place={dest} />
+          <PlaceActions place={dest} suggestId={nextSpotInArea(item, timeline, schedule, choices)} />
         </section>
       )}
 

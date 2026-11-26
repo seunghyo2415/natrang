@@ -59,6 +59,29 @@ export function destinationOf(item: ScheduleItem, schedule: Schedule, choices: R
   return getPlace(resolveRef(item.to ?? item.place, item, schedule, choices))
 }
 
+/**
+ * 「나트랑 시내」처럼 넓은 지역으로 가는 일정이면, 바로 다음 일정의 장소가 그 지역 안의 어디인지 알려 줌
+ * 예) 2일차 「나트랑 시내로 이동」 → 다음 일정 점심 「마담프엉」 → 'madam-phuong'
+ */
+export function nextSpotInArea(
+  item: ScheduleItem,
+  timeline: ScheduleItem[],
+  schedule: Schedule,
+  choices: Record<string, string>,
+): string | undefined {
+  const area = destinationOf(item, schedule, choices)
+  if (!area?.areaSpots) return undefined
+  const i = timeline.findIndex((t) => t.id === item.id)
+  if (i < 0) return undefined
+  for (const t of timeline.slice(i + 1)) {
+    if (t.kind === 'expense') continue // 지출 기록은 건너뜀
+    const d = destinationOf(t, schedule, choices)
+    if (!d || d.areaSpots) continue // 같은 지역 안에서 계속 돌아다니는 일정이면 그다음 것
+    return area.areaSpots.includes(d.id) ? d.id : undefined
+  }
+  return undefined
+}
+
 /** 구글 지도 길찾기 (출발지를 비우면 현재 위치에서 출발) */
 export function directionsUrl(p: Place): string {
   const dest = hasCoords(p) ? `${p.lat},${p.lng}` : (p.searchQuery ?? p.name)
