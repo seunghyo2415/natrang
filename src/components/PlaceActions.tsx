@@ -2,7 +2,7 @@
 // 길찾기 · 장소 정보 · 그랩 · 주소 복사 · 기사님께 보여주기 · 전화
 import { useState } from 'react'
 import { copyText, grabUrl } from '../lib/device'
-import { isKnown } from '../lib/places'
+import { hasCoords, isKnown } from '../lib/places'
 import type { Place } from '../types'
 import { DirectionsButton } from './DirectionsButton'
 
@@ -32,7 +32,8 @@ export function PlaceActions({ place, compact = false }: { place?: Place; compac
     // 그랩 목적지 칸에 붙여 넣을 수 있게 주소를 먼저 복사
     await copyText(addressFor(place))
     show('📋 주소 복사됨 — 그랩 목적지에 붙여 넣으세요')
-    window.setTimeout(() => (window.location.href = grabUrl()), 400)
+    const dest = hasCoords(place) ? { lat: place.lat as number, lng: place.lng as number } : undefined
+    window.setTimeout(() => (window.location.href = grabUrl(dest)), 400)
   }
 
   return (
