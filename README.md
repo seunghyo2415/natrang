@@ -1,32 +1,134 @@
-# React + TypeScript + Vite
+# 🏝️ 나트랑 여행 도우미
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+2026년 12월 17일~21일 나트랑 3박 5일 여행(3명)을 위한 **폰 전용 웹앱**이에요.
+인터넷이 끊겨도 열리고, 안드로이드 폰 홈 화면에 앱처럼 설치할 수 있어요.
 
-Currently, two official plugins are available:
+👉 **앱 주소: https://seunghyo2415.github.io/natrang/**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+> 이 저장소와 앱 주소는 **누구나 볼 수 있어요.** 이름·예약번호·여권번호 같은 개인정보는 절대 넣지 마세요.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📱 할 수 있는 것
 
-## Expanding the Oxlint configuration
+| 탭 | 내용 |
+|---|---|
+| ☀️ **오늘** | 지금 할 일 · 남은 시간 · 다음 일정 · 항공편 · 오늘 비용 (여행 전엔 D-day와 준비물) |
+| 🗓️ **전체** | 날짜별 일정 · 일정 누르면 상세(길찾기·그랩·주의할 점·수정) · 💳 쓴 금액 입력 · ＋ 지출·일정 추가 |
+| 🧭 **주변** | 카페·식당·약국·ATM 찾기 · 일정 미루기/건너뛰기 · 비 오거나 문 닫았을 때 대안 |
+| ✅ **체크** | 원↔동 계산기 · 예약 확인 할 일 · 준비물 · 주의사항 · 항공편 · 비상 연락처 |
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+- 시간은 **베트남 시간(한국보다 2시간 느림)** 기준이고, 한국 시간도 같이 보여 줘요. 폰 시간대 설정과 상관없이 맞게 계산돼요.
+- 입력한 금액·체크·수정 내용은 **각자 폰에만** 저장돼요. (서로 공유되지 않아요)
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+---
+
+## 📲 안드로이드 폰에 설치하기
+
+1. **와이파이나 데이터를 켠 채로** Chrome에서 위 앱 주소를 여세요.
+2. 아래에 **「✅ 오프라인 준비 완료」**가 뜨면 **확인**을 누르세요.
+3. 오른쪽 위 **⋮** → **홈 화면에 추가**(또는 **앱 설치**) → **설치**를 누르세요.
+4. 바탕화면에 🏝️ 아이콘이 생기면 끝! 이제 인터넷이 없어도 아이콘으로 열려요.
+
+**새 버전이 나오면:** 앱을 열었을 때 **「🔄 업데이트 있음」** → **지금 업데이트**를 누르세요. 입력해 둔 내용은 그대로 남아요.
+(알림이 안 뜨면 앱을 완전히 닫았다가 다시 열어 보세요)
+
+---
+
+## 🗺️ 구글 지도 오프라인 저장 (출국 전 와이파이에서)
+
+앱의 일정·계산기는 인터넷 없이 되지만, **길찾기는 구글 지도 앱**이 해요. 지도를 미리 받아 두면 데이터가 끊겨도 길찾기가 돼요.
+
+1. **구글 지도** 앱 → 오른쪽 위 **내 프로필 사진** → **오프라인 지도**
+2. **나만의 지도 선택**
+3. 파란 네모 안에 **나트랑 시내 ~ 깜란 공항**이 다 들어오게 조절 (넓으면 두 번에 나눠 받기)
+4. **다운로드**
+
+⚠️ 오프라인 지도로는 **자동차 길찾기만** 되고, 가게 영업시간·리뷰는 안 보여요. 그랩은 인터넷이 꼭 필요해요.
+
+---
+
+## 💻 내 컴퓨터에서 실행하기
+
+처음 한 번만: [Node.js](https://nodejs.org) 설치 → 터미널(PowerShell)에서
+
+```powershell
+cd C:\Users\PC\Desktop\nhatrang-app
+npm install
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+| 하고 싶은 것 | 명령 | 결과 |
+|---|---|---|
+| 고치면서 보기 | `npm run dev` | http://localhost:5173 (저장하면 바로 반영) |
+| 시험 문제 풀기 | `npm test` | `Tests 42 passed` 처럼 나오면 정상 |
+| 완성본 만들어 보기 | `npm run build` 후 `npm run preview` | http://localhost:4173 (오프라인 기능은 여기서 시험) |
+
+끄는 법: 터미널에서 **Ctrl + C**
+
+**원하는 시각으로 시험해 보기:** 주소 뒤에 `?now=`를 붙이면 그 시각인 척해요. 화면 위에 「테스트」 표시가 떠요.
+예) `http://localhost:5173/?now=2026-12-18T14:20:00+07:00` → 12월 18일 오후 2시 20분(베트남 시간)
+
+---
+
+## 🚀 고친 내용을 폰에 반영하기 (다시 배포)
+
+```powershell
+git add -A
+git commit -m "무엇을 고쳤는지 한 줄"
+git push
+```
+
+- `git push` 하면 GitHub이 자동으로 **시험 → 완성본 만들기 → 앱 주소에 올리기**를 해요. (1~2분)
+- 진행 상황: https://github.com/seunghyo2415/natrang/actions — 초록 ✅ 면 성공, 빨간 ❌ 면 눌러서 어느 단계에서 멈췄는지 확인
+- 시험에서 하나라도 틀리면 **올리지 않아요.** 망가진 앱이 폰으로 가지 않게 하려는 안전장치예요.
+- 성공하면 폰 앱에 「🔄 업데이트 있음」이 떠요.
+
+---
+
+## ✏️ 자주 고칠 만한 곳
+
+| 고칠 것 | 파일 |
+|---|---|
+| 일정 시간·장소·예산 | `src/data/schedule.json` |
+| 장소 주소·좌표·전화·구글지도 링크 | `src/data/places.json` (모르는 칸은 `"TODO"` 그대로 두기 — 좌표를 추측해서 넣지 않기) |
+| 준비물·예약 확인 목록 | `src/data/checklists.json` |
+| 주의사항·비상 연락처 | `src/data/tips.json` (연락처는 **공식 사이트에서 확인한 번호만**, 출처 링크 함께) |
+| 환율 | `src/data/schedule.json` 의 `vndPerKrw` (지금 1원 = 19.46동) |
+
+**장소 좌표 넣는 법:** 구글 지도에서 장소를 길게 눌러 핀을 꽂으면 위쪽 검색창에 `12.07..., 109.16...` 같은 숫자가 나와요. 앞이 `lat`, 뒤가 `lng`예요.
+
+---
+
+## 🧳 출발 전 할 일
+
+### 앱·폰 준비
+- [ ] 3명 모두 폰에 앱 설치하고, **와이파이에서 한 번 열어** 「오프라인 준비 완료」 확인
+- [ ] 비행기 모드로 앱이 열리는지 확인
+- [ ] 구글 지도 **오프라인 지도** 받기 (나트랑 시내 ~ 깜란 공항)
+- [ ] **그랩(Grab)** 앱 설치 · 가입 · 결제수단 등록
+- [ ] 유심/eSIM, 환전 준비 (앱 「체크」 탭 예약 목록 6번)
+
+### 확인이 필요한 정보
+- [ ] **마사지샵 정하기 (마울스파 / 오션 스파)** — 두 곳 모두 주소·좌표·전화가 아직 비어 있어요(「위치 미확정」 표시). 정해지면 `places.json`에 채우기
+- [ ] 마사지샵에 확인: 알마 리조트 픽업 · 캐리어 3개 보관 · 공항 샌딩 · 3명+짐 동승 · 출국팩 요금 (앱 「체크」 탭 예약 목록 1~5번)
+- [ ] **세 번째 일행 항공권 확인** — 받은 전자항공권에는 2명만 적혀 있었어요
+- [ ] **돌아오는 비행기 날짜 주의** — VJ990은 표에 **12월 21일 00:05** 출발이지만, 실제로는 **12월 20일(일) 밤**에 공항에 가야 해요
+- [ ] **공항 도착 시각** — 권장(출발 3시간 전)보다 늦게 잡혀 있어요 (1일차 05:30 / 4일차 21:30). 일정은 유지하기로 했지만 당일 여유 있게
+- [ ] **비상 연락처 재확인** — 주호치민 총영사관 긴급번호가 연락처 페이지에는 `+84-93-850-0238`, 산사태 안전공지에는 `…0283`으로 달라요. [총영사관 연락처 페이지](https://overseas.mofa.go.kr/vn-hochiminh-ko/wpge/m_3987/contents.do)에서 한 번 더 확인
+- [ ] 그랩 예상비(2일차 이동 약 400,000동, 4일차 약 100,000동)는 **예산 합계에 안 들어가 있어요.** 현지에서 💳로 실제 금액을 넣으면 합계에 반영돼요
+- [ ] 출발 직전 환율 확인 (바뀌었으면 `vndPerKrw` 수정 후 다시 배포)
+
+### 아직 비어 있는 장소 정보 (`"TODO"`)
+없어도 앱은 동작해요. 길찾기는 장소 이름으로 검색해서 열려요.
+- 좌표·주소 없음: **마울스파, 오션 스파**, 깜란공항(검색으로 대체), 김해공항, 밀양, 나트랑 시내·깜란 시내(구역이라 장소 고르기로 대체)
+- 베트남어 이름 없음: 동호마트, 마담프엉, 반미판2, 안토이, JJ 씨푸드, 헤르메스 스파
+- 전화 없음: 나트랑 야시장, Than - The Greenery
+
+---
+
+## 🛠️ 만든 도구
+
+React + TypeScript + Vite · Tailwind CSS · vite-plugin-pwa(오프라인) · Vitest(시험) · GitHub Actions + GitHub Pages(자동 배포)
+서버·API 키·회원가입 없음. 지도는 구글 지도 링크로만 연결해요.
+
+만들면서 배운 내용은 [배운것.md](배운것.md)에 정리했어요.
