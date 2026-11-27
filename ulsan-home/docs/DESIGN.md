@@ -1,6 +1,6 @@
-# 울산 부동산 올인원 앱 — 1단계 설계서 (v0.1, 확인 대기)
+# 내가 만든 부동산 앱 — 설계서 (v0.2)
 
-> 상태: **설계 검토 중**. 아래 「결정이 필요한 것」에 답을 받은 뒤 2단계 코드를 시작합니다.
+> 상태: **설계 확정(2026-11-27)** — 결정 사항은 맨 아래 10장 참고.
 > 표시 규칙: ✅ 공식 문서·포털에서 확인함 / 🔶 엔드포인트는 확인했고 **응답 필드명은 4단계에서 실제 응답·활용가이드로 확인 예정** / ❓ 아직 확인 못 함(쓰기 전에 확인)
 
 ---
@@ -289,7 +289,8 @@ match_failures(id, source text, raw jsonb, candidates jsonb, reason text, resolv
 | 15 | 블로그·카페 검색 | 네이버 검색 API | `openapi.naver.com/v1/search/blog.json`, `cafearticle.json` | ✅ |
 | 16 | 블로그·카페·웹문서 | 카카오(다음) 검색 | `dapi.kakao.com/v2/search/blog`, `cafe`, `web` | ✅ |
 | 17 | 임장·리뷰 영상 | YouTube Data API v3 | `www.googleapis.com/youtube/v3/search` | ✅ |
-| 18 | 길찾기 소요시간 | 카카오모빌리티 길찾기(자동차) / 대중교통은 ❓ | `apis-navi.kakaomobility.com/v1/directions` | 🔶 대중교통 공식 API는 별도 검토 → 「결정 4」 |
+| 18 | 길찾기 소요시간 (자동차) | 카카오모빌리티 길찾기 | `apis-navi.kakaomobility.com/v1/directions` | 🔶 (대중교통 시간은 만들지 않기로 결정) |
+| 19 | 현대자동차 울산공장 통근버스 | 사용자 제공 엑셀(본공장 1·2조 출근 노선) | 공개 자료 없음 → 엑셀 파싱 + 정류장 이름을 카카오 키워드 검색으로 좌표화 | 🔶 정류장 좌표는 6단계에서 확인·수동 보정 |
 
 **울산 시군구 코드(LAWD_CD)**: 중구 31110 · 남구 31140 · 동구 31170 · 북구 31200 · 울주군 31710 — 일반적으로 알려진 값이며, 2단계에서 **행정표준코드관리시스템(code.go.kr) 법정동코드 전체자료**를 내려받아 `packages/shared/codes/ulsan.ts`로 생성하면서 대조합니다.
 
@@ -352,10 +353,22 @@ match_failures(id, source text, raw jsonb, candidates jsonb, reason text, resolv
 
 ---
 
-## 10. 결정이 필요한 것 (답을 주시면 2단계 시작)
+## 10. 확정된 결정 (2026-11-27)
 
-1. **어디에 만들까요?** (a) 지금 저장소의 `ulsan-home/` 폴더 *(바로 시작 가능)* / (b) GitHub에서 새 저장소를 만들어 주시면 거기로
-2. **백엔드**: Supabase로 진행해도 될까요? *(권장)*
-3. **테스트 기기**: 안드로이드 폰이 있나요? 2~4단계는 폰의 **Expo Go** 앱으로 확인하고, 5단계부터 개발용 APK를 설치합니다.
-4. **출퇴근 대중교통 시간**: 초기엔 자동차 시간 + 카카오맵 링크로 시작해도 될까요?
-5. **앱 이름**: 가칭 「울산집」(폴더명 ulsan-home). 다른 이름 원하시면 알려주세요.
+1. **저장소**: 새 GitHub 저장소로 옮긴다 (사용자가 만든 뒤 이전). 그 전까지는 `natrang` 저장소의 `ulsan-home/` 폴더에서 작업.
+2. **백엔드**: Supabase.
+3. **테스트 기기**: 안드로이드 폰 있음 → 2~4단계 Expo Go, 5단계부터 개발용 APK.
+4. **출퇴근**: 대중교통 소요시간은 만들지 않는다. 대신 **현대자동차 통근버스**:
+   - 1순위: 노선을 지도에 선으로 표시 (정류장 순서대로 연결)
+   - 최소: 단지에서 **가장 가까운 통근버스 정류장 + 도보 시간**
+   - 데이터: 사용자가 준 엑셀(노선 66개 · 출발편 107개 · 정류장 이름 208곳, 지역 21곳). 정류장이 "○○아파트 정문", "○○약국" 같은 이름뿐이라 좌표 변환 후 사람이 확인하는 과정 필요.
+   - ⚠️ 회사 내부 자료일 수 있어 **공개 저장소에는 올리지 않는다.** 비공개 저장소 또는 Supabase DB에만 저장.
+   - DB: `commute_bus_routes(id, company, region, shift, depart_times jsonb)`, `commute_bus_stops(id, name, location geography, verified boolean)`, `commute_bus_route_stops(route_id, seq, stop_id)`
+5. **앱 이름**: 「내가 만든 부동산 앱」 (slug `my-realestate-app`, Android 패키지 `com.myrealestate.ulsan` — 스토어에 처음 올리기 전까지 바꿀 수 있고, 올린 뒤에는 못 바꿈)
+
+## 11. 2단계 구현 메모
+
+- Expo SDK 58 / Expo Router (`apps/mobile/src/app`), npm workspaces 모노레포.
+- 지도 마커 묶음: 카카오 레벨 8 이상 → 구·군, 6~7 → 동, 5 이하 → 단지 (화면 영역 안만). 카카오 `clusterer` 라이브러리는 쓰지 않고 서버(지금은 목업) 집계로 처리.
+- 앱↔지도 메시지 규약: `src/map-web/kakao-map-html.ts` 맨 위 주석.
+- `react-native-webview` 타입 선언이 최신 TypeScript와 안 맞아 `KakaoMap.tsx`에서 타입만 바로잡음.

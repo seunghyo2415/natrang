@@ -1,0 +1,10 @@
+{
+  "name": "my-realestate-app",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "start": "npm run start -w mobile",
+    "test": "npm run test -w @ulsan/shared",
+    "typecheck": "npm run typecheck -w mobile && npm run typecheck -w @ulsan/shared"
+  }
+}
